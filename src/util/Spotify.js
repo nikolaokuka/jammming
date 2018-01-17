@@ -1,4 +1,4 @@
-const clientId = ''; // Client ID goes here
+const clientId = '';
 const redirectUri = 'http://nikolaokuka-jammming.surge.sh';
 let token = '';
 
@@ -6,9 +6,9 @@ const Spotify = {
 	getToken(){
 		if(token) return token;
 		const tokenMatch = window.location.href.match(/access_token=([^&]*)/);
-    const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+    	const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
 		if(tokenMatch && expiresInMatch){
-		  token = tokenMatch[1];
+		  	token = tokenMatch[1];
 			const expiresIn = Number(expiresInMatch[1]);
 			window.setTimeout(() => token = '', expiresIn * 1000);
 			window.history.pushState('Access Token', null, '/');
@@ -43,14 +43,14 @@ const Spotify = {
 		let jsonResponse = await response.json();
 		let userId = jsonResponse.id;
 		response = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
-			headers: {Authorization: `Bearer ${token}`, 'Content-Type': 'application-json'},
+			headers: {Authorization: `Bearer ${token}`, 'Content-Type': 'application/json'},
 			method: 'POST',
 			body: JSON.stringify({name: name})
 		});
 		jsonResponse = await response.json();
 		let playlistId = jsonResponse.id;
 		return await fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
-			headers: {Authorization: `Bearer ${token}`, 'Content-Type': 'application-json'},
+			headers: {Authorization: `Bearer ${token}`, 'Content-Type': 'application/json'},
 			method: 'POST',
 			body: JSON.stringify({uris: uris})
 		});	
