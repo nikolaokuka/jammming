@@ -1,4 +1,4 @@
-const clientId = '';
+const clientId = ''; // Client ID goes here
 const redirectUri = 'http://nikolaokuka-jammming.surge.sh';
 let token = '';
 
