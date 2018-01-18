@@ -32,7 +32,7 @@ const Spotify = {
       album: track.album.name,
       uri: track.uri
     }));
-	},
+  },
 
   async savePlaylist(name, uris){
     if(!name || !uris.length) return;
