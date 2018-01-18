@@ -3,8 +3,8 @@ const redirectUri = 'http://nikolaokuka-jammming.surge.sh';
 let token = '';
 
 const Spotify = {
-	getToken(){
-		if(token) return token;
+  getToken(){
+  if(token) return token;
 		const tokenMatch = window.location.href.match(/access_token=([^&]*)/);
     	const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
 		if(tokenMatch && expiresInMatch){
