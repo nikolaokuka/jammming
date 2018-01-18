@@ -1,7 +1,6 @@
 const clientId = '';
 const redirectUri = 'http://nikolaokuka-jammming.surge.sh';
 let token = '';
-let mambo;
 
 const Spotify = {
 	getToken(){
