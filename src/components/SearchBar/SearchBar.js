@@ -15,16 +15,16 @@ class SearchBar extends React.Component {
   }
 
   handleEmpty(){
-		return this.state.term.trim() === '' ? false : true;
-	}
+    return this.state.term.trim() === '' ? false : true;
+  }
 
-	handleClick(){
-		if(this.handleEmpty()) this.props.search(this.state.term);
-	}
+  handleClick(){
+    if(this.handleEmpty()) this.props.search(this.state.term);
+  }
 
-	handleOnKeyUp(e){
-		if(e.keyCode === 13 && this.handleEmpty()) this.props.search(this.state.term);
-	}
+  handleOnKeyUp(e){
+    if(e.keyCode === 13 && this.handleEmpty()) this.props.search(this.state.term);
+  }
 
   render(){
     return (
